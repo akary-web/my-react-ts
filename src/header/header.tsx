@@ -1,19 +1,15 @@
 import React from 'react';
-import { nav } from '../data/navList'; // navListの型定義が必要
+import { nav } from '../data/navList'; // navListの型定義が必要　
 import styles from './header.module.css';
 import { Link } from 'react-router-dom';
 
-// nav要素の型定義
-interface NavItem {
-  id: number;
-  name: string; // ナビゲーションの表示名
-  href: string; // リンク先のURL
-}
+//Header コンポーネント内の NavItem 型定義は不要
+//nav.ts からインポートしているから
 
 export const Header: React.FC = () => {
   return (
     <header className={styles.header}>
-      {nav.map((elem: NavItem) => (
+      {nav.map((elem) => (  // elemの型定義は省略可能
         <Link to={elem.href} key={elem.id}>
           {elem.name}
         </Link>
